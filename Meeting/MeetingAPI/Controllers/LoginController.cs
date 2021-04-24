@@ -1,4 +1,5 @@
 ﻿using DTO.Convert;
+using DTO.Convert.LineChart;
 using DTO.Login;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -39,15 +40,25 @@ namespace MeetingAPI.Controllers
             return new Basic();
         }
 
-        [HttpGet("Donut")]
-        public Donut Donut()
+        //[HttpGet("Donut")]
+        //public Donut Donut()
+        //{
+        //    List<int> numbers = new List<int>();
+        //    numbers.Add(25);
+
+        //    List<string> donut = new List<string>();
+        //    donut.Add("first");
+
+        //    return new Donut(50, true, true, numbers, donut);
+        //}
+
+
+        [HttpGet("Stepline")]
+        public Stepline Stepline()
         {
-            List<int> donut = new List<int>();
-            donut.Add("first");
+            List<int> number = new List<int>() { 34, 44, 54, 21, 12, 43, 33, 23, 66, 66, 58 };
 
-            
-
-            return new Donut();
+            return new Stepline(350, number);
         }
 
     }
