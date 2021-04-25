@@ -1,6 +1,8 @@
-﻿using DTO.EnterObject;
+﻿using DAL.Entiti;
+using DTO.EnterObject;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Servise.Searchs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +15,10 @@ namespace MeetingAPI.Controllers
     public class SerchController : ControllerBase
     {
         [HttpPost("SearchMyFriend")]
-        public void SearchMyFriend(EnterObjectINFoamtion model)
-        { 
-            
+        public List<User> SearchMyFriend(EnterObjectINFoamtion model)
+        {
+            Search _servise = new Search();
+            return _servise.GetMatch(model);
         }
     }
 }

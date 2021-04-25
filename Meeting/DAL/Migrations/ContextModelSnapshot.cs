@@ -26,13 +26,17 @@ namespace DAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("UserIDFriend")
+                    b.Property<int?>("UserIDFriendID")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserIDMy")
+                    b.Property<int?>("UserIDMyID")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("UserIDFriendID");
+
+                    b.HasIndex("UserIDMyID");
 
                     b.ToTable("FriendLists");
                 });
@@ -88,7 +92,16 @@ namespace DAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Gender")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("LoginID")
@@ -97,11 +110,29 @@ namespace DAL.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Relationship")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.HasIndex("LoginID");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("DAL.Entiti.FriendList", b =>
+                {
+                    b.HasOne("DAL.Entiti.User", "UserIDFriend")
+                        .WithMany()
+                        .HasForeignKey("UserIDFriendID");
+
+                    b.HasOne("DAL.Entiti.User", "UserIDMy")
+                        .WithMany()
+                        .HasForeignKey("UserIDMyID");
+
+                    b.Navigation("UserIDFriend");
+
+                    b.Navigation("UserIDMy");
                 });
 
             modelBuilder.Entity("DAL.Entiti.Registration", b =>

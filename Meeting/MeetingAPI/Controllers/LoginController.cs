@@ -15,7 +15,7 @@ namespace MeetingAPI.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
-        [HttpGet("Login")]
+        [HttpPost("Login")]
         public bool Login(LoginDTO model)
         {
             LoginServise _servise = new LoginServise();

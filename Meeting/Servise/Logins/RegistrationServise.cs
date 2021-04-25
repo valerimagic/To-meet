@@ -33,11 +33,20 @@ namespace Servise.Logins
                     LastName = model.LastName,
                     Email = model.Email
                 };
+                User user = new User() {
+                    Name = model.FirstName,
+                    Email = model.Email,
+                    Age = model.Age,
+                    City = model.City,
+                    Gender = model.Gender,
+                    Relationship = model.Relationship
+                };
 
                 // vyvexdane v bazata
                 Context _context = new Context();
                 _context.Logins.Add(loginModel);
                 _context.Registrations.Add(regist);
+                _context.Users.Add(user);
                 _context.SaveChanges();
                 // vry]ane na infomaciq kym potrebitelq
                 return true;
