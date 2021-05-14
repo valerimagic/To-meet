@@ -38,6 +38,20 @@ namespace MeetingAPI
 
             app.UseHttpsRedirection();
 
+
+            //sender : http://meet1.com
+            //
+            //development
+            app.UseCors(policy => { policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+            });
+
+
+
+
+
+            // HttpClientBuilderExtensions://meet.com - > Friend -> GEt
+            //app.UseCors(x => { x.WithMethods("GET").WithHeaders("Friend").WithOrigins//("http://meet.com"); });
+
             app.UseRouting();
 
             app.UseAuthorization();

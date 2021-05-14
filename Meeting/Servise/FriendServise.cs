@@ -69,5 +69,25 @@ namespace Servise
 
 
 
+        // calendar/events
+        // 
+
+        //post - body
+
+
+
+        // get
+        // post 200-1000ms 
+
+        //delete - 100-200
+       //update - 200-400
+       //put - ~500ms
+
+        // Contact/2   -single param
+
+
+        // multiple params
+        // Contact?userid=5&name=ivan
+
     }
 }

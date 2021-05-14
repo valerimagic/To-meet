@@ -35,5 +35,17 @@ namespace MeetingAPI.Controllers
             })
             .ToArray();
         }
+
+        [HttpGet("GetContact")]
+        public void GetContact(int? user_id, string? name)
+        { 
+        
+        }
+
+        [HttpPost("POstConmtact")]
+        public void POstConmtact(int? user_id, string? name , SimpleContact model)
+        {
+
+        }
     }
 }
