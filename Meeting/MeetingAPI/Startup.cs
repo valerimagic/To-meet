@@ -42,11 +42,11 @@ namespace MeetingAPI
             //sender : http://meet1.com
             //
             //development
-            app.UseCors(policy => { policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
-            });
-
-
-
+            //app.UseCors(policy => { policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+            //});
+            //app.UseCors(policy => {
+            //    policy.WithOrigins("URL").AllowAnyHeader("Controller name ").AllowAnyMethod();
+            //});
 
 
             // HttpClientBuilderExtensions://meet.com - > Friend -> GEt
